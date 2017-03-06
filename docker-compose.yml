@@ -8,7 +8,7 @@ phprun5:
       privileged: true
       volumes: 
               - ./:/php_develop
-              - ./conf.d/:/usr/local/etc/php/conf.d/
+              - ./conf.d/php55:/usr/local/etc/php/conf.d/
               - ./conf/php-5.6.27/php.ini-development:/usr/local/etc/php/php.ini
            
       # worker_dir: /php_develop/workbench
@@ -19,8 +19,19 @@ phprun7:
               - "8898:8899"
       volumes:
               - ./:/php_develop
-              - ./conf.d/:/usr/local/etc/php/conf.d
+              - ./conf.d/php70:/usr/local/etc/php/conf.d
               - ./extension/php7/:/usr/local/lib/php/extensions/debug-non-zts-20151012/
               - ./conf/php-7.0.12/php.ini-development:/usr/local/etc/php/php.ini
       privileged: true
+phprun71:
+      build: images/php/7.1
+      command: ['php','-S','127.0.0.1:8899','-t','/tmp/']
+      ports:
+              - "8898:8899"
+      volumes:
+              - ./:/php_develop
+              - ./conf.d/php71:/usr/local/etc/php/conf.d
+              - ./extension/php7/:/usr/local/lib/php/extensions/no-debug-non-zts-20160303/
+              - ./conf/php-7.1.0/php.ini-development:/usr/local/etc/php/php.ini
+      privileged: true    
       # worker_dir: /php_develop/workbench
