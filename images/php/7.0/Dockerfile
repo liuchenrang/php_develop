@@ -91,7 +91,8 @@ RUN set -xe \
 	&& cd /usr/src/php \
 	&& ./configure \
 		--enable-debug \
-		--with-phpdbg \
+		--enable-phpdbg \
+		--enable-phpdbg-webhelper \
 		--enable-maintainer-zts \
 		--with-config-file-path="$PHP_INI_DIR" \
 		--with-config-file-scan-dir="$PHP_INI_DIR/conf.d" \

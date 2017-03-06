@@ -565,7 +565,7 @@ html_errors = On
 ; empty.
 ; http://php.net/error-log
 ; Example:
-;error_log = php_errors.log
+error_log = /tmp/php_errors.log
 ; Log errors to syslog (Event Log on Windows).
 ;error_log = syslog
 
@@ -876,6 +876,9 @@ default_socket_timeout = 60
 ;
 ;extension=rdkafka.so
 ;extension=php_curl.dll
+extension=soap.so
+extension=rdkafka.so
+extension=amqp.so
 ;extension=php_fileinfo.dll
 ;extension=php_ftp.dll
 ;extension=php_gd2.dll
