@@ -876,9 +876,6 @@ default_socket_timeout = 60
 ;
 ;extension=rdkafka.so
 ;extension=php_curl.dll
-extension=soap.so
-extension=rdkafka.so
-extension=amqp.so
 ;extension=php_fileinfo.dll
 ;extension=php_ftp.dll
 ;extension=php_gd2.dll

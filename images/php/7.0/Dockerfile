@@ -87,7 +87,6 @@ RUN set -xe \
 	&& apt-get update \
 	&& apt-get install -y gdb \
 	&& apt-get install -y vim \
-	&& apt-get install python \
 	&& docker-php-source extract \
 	&& cd /usr/src/php \
 	&& ./configure \
@@ -115,10 +114,7 @@ RUN set -xe \
 		$PHP_EXTRA_CONFIGURE_ARGS \
 	&& make -j "$(nproc)" \
 	&& make install \
-	&& { find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; } \
 	&& make clean \
-# && docker-php-source delete \
-	\
 	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $buildDeps
 
 COPY docker-php-ext-* /usr/local/bin/
